@@ -1,0 +1,142 @@
+/* Body and background settings */
+body {
+    background-image: url('images/car1.jpg'); /* Background image */
+    background-size: cover;                  /* Full-screen cover */
+    background-position: center;             /* Center the background */
+    background-attachment: fixed;            /* Fixed background during scroll */
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;                           /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 2s ease-in-out;        /* Animation for fade-in effect */
+  }
+  
+  /* Animation for fading in the body */
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  /* Header Section */
+  header {
+    text-align: center;
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent background */
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 20px;
+    animation: slideIn 1s ease-out;          /* Animation for sliding the header */
+  }
+  
+  @keyframes slideIn {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(0); }
+  }
+  
+  header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    animation: fadeUp 1.5s ease-in-out;      /* Header text fade-in */
+  }
+  
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  header p {
+    font-size: 1.2em;
+    animation: fadeUp 2s ease-in-out;
+    animation-delay: 0.5s;
+  }
+  
+  /* Motorsport Container */
+  #motorsport-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  /* Individual Motorsport Item */
+  .motorsport-item {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform on hover */
+    opacity: 0;
+    animation: fadeInItem 1.5s ease-out forwards; /* Fade-in effect for each item */
+  }
+  
+  @keyframes fadeInItem {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Image styling */
+  .motorsport-item img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease; /* Zoom effect on hover */
+  }
+  
+  .motorsport-item:hover img {
+    transform: scale(1.1); /* Image zoom on hover */
+  }
+  
+  /* Hover effects for the items */
+  .motorsport-item:hover {
+    transform: scale(1.05);  /* Slight zoom effect on the entire item */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+  }
+  
+  /* Button Styling */
+  button {
+    background-color: #ff5f5f;   /* Red button color */
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #ff0000;    /* Darker red on hover */
+    transform: scale(1.05);        /* Slight zoom effect on hover */
+  }
+  
+  /* Footer Styling */
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    margin-top: 20px;
+    font-size: 1em;
+    animation: fadeIn 2s ease-in-out;
+  }
+  body {
+    background-image: url('https://images.unsplash.com/photo-1724076397694-941c4097a799?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Zm9ybXVsZSUyMDF8ZW58MHx8MHx8fDA%3D'); /* Path to your image */
+    background-size: cover;                  /* Ensure the image covers the whole page */
+    background-position: center;             /* Center the image */
+    background-attachment: fixed;            /* Keep the background fixed during scroll */
+    background-repeat: no-repeat;            /* Prevent the image from repeating */
+    color: white;                            /* Set text color to white for contrast */
+  }
+  

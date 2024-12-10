@@ -1,41 +1,28 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-
+const path = require('path');
 const app = express();
+const port = 3000;
 
-// Middleware
-app.use(cors());
-app.use(bodyParser.json());
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/motorsport', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err));
+// Sample data for motorsport content (You can replace this with a real database if needed)
+const motorsportData = [
+  { name: 'Formula 1', image: 'car1.jpg', description: 'The pinnacle of motorsport.' },
+  { name: 'MotoGP', image: 'car2.jpg', description: 'The world’s premier motorcycle racing series.' },
+];
 
-// Define Schema and Model
-const CarSchema = new mongoose.Schema({
-    name: String,
-    brand: String,
-    year: Number,
-});
-const Car = mongoose.model('Car', CarSchema);
-
-// Routes
-app.get('/cars', async (req, res) => {
-    const cars = await Car.find();
-    res.json(cars);
+// Serve the main page
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.post('/cars', async (req, res) => {
-    const car = new Car(req.body);
-    await car.save();
-    res.json(car);
+// API to get motorsport data
+app.get('/api/motorsports', (req, res) => {
+  res.json(motorsportData);
 });
 
-// Start Server
-const PORT = 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
